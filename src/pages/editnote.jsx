@@ -31,10 +31,12 @@ const EditNote = ({ notes, setNotes }) => {
   };
 
   const handleDelete = () => {
-    const newNotes = notes.filter((item) => item.id !== id);
+    if (window.confirm('Are you sure? The delete is permanent!')) {
+      const newNotes = notes.filter((item) => item.id !== id);
 
-    setNotes(newNotes);
-    navigate('/');
+      setNotes(newNotes);
+      navigate('/');
+    }
   };
 
   return (

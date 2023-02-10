@@ -1,4 +1,5 @@
 import { BsSearch } from 'react-icons/bs';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { GoPlus } from 'react-icons/go';
 import NoteItem from '../component/noteitem';
@@ -38,11 +39,14 @@ const Notes = ({ notes }) => {
           />
         )}
         <button className='btn' onClick={() => setShowSearch(!showSearch)}>
-          <BsSearch />
+          {showSearch ? <BsSearch /> : <AiOutlineCloseCircle />}
         </button>
       </header>
 
       <div className='notes__container'>
+        {filteredNotes.length === 0 && (
+          <p className='empty__notes'>What the hell men</p>
+        )}
         {filteredNotes.map((note) => (
           <NoteItem note={note} key={note.id} />
         ))}
