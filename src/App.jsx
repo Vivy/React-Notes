@@ -23,7 +23,7 @@ const App = () => {
             element={<CreateNotes setNotes={setNotes} />}
           />
           <Route
-            path='/edit-note'
+            path='/edit-note/:id'
             element={<EditNote notes={notes} setNotes={setNotes} />}
           />
         </Routes>

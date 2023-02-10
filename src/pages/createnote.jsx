@@ -7,16 +7,14 @@ import useCreateDate from '../hooks/createdate';
 const CreateNote = ({ setNotes }) => {
   const date = useCreateDate();
   const [title, setTitle] = useState('');
-  const [detailes, setDetailes] = useState('');
+  const [details, setDetails] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (title && detailes) {
-      const note = { id: uuid(), title, detailes, date };
-
-      console.log(note);
+    if (title && details) {
+      const note = { id: uuid(), title, details, date };
 
       setNotes((prevNotes) => [note, ...prevNotes]);
       navigate('/');
@@ -42,8 +40,8 @@ const CreateNote = ({ setNotes }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
-          onChange={(e) => setDetailes(e.target.value)}
-          value={detailes}
+          onChange={(e) => setDetails(e.target.value)}
+          value={details}
           placeholder='Notes here...'
           rows='37'
         ></textarea>

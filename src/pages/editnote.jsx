@@ -6,7 +6,7 @@ import useCreateDate from '../hooks/createdate';
 
 const EditNote = ({ notes, setNotes }) => {
   const { id } = useParams();
-  const note = notes.find((item) => item.id == id);
+  const note = notes.find((item) => item.id === id);
   const [title, setTitle] = useState(note.title);
   const [details, setDetails] = useState(note.details);
   const date = useCreateDate();
@@ -36,13 +36,14 @@ const EditNote = ({ notes, setNotes }) => {
     setNotes(newNotes);
     navigate('/');
   };
+
   return (
     <section>
       <header className='create-note__header'>
         <Link to='/'>
           <AiOutlineArrowLeft />
         </Link>
-        <button className='btn lg primary ' onChange={handleEdit}>
+        <button className='btn lg primary ' onClick={handleEdit}>
           Save
         </button>
         <button className='btn danger' onClick={handleDelete}>
